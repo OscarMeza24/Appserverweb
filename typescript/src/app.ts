@@ -69,3 +69,14 @@ function Agregar3(param: Istudent): Promise<Istudent> {
     resolve(param);
   });
 }
+
+function Agregar4(param: Istudent): Promise<Istudent> {
+  return new Promise((resolve, reject) => {
+    if (param.name === "") {
+      reject("el nombre no puede estar vacio");
+    } else {
+      estudiantes.push(param);
+      resolve(param);
+    }
+  });
+}
