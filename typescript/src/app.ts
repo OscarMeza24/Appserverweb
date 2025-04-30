@@ -69,5 +69,3 @@ function Agregar3(param: Istudent): Promise<Istudent> {
     resolve(param);
   });
 }
-
-const estudiante3: Istudent = { id: 44, name: "", correo: "", direccion: "" };
