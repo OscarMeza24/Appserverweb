@@ -86,7 +86,7 @@ function guardarAlerta(alerta: Alerta): Promise<string> {
   });
 }
 
-// 9. ✅ Async/Await
+// 9. Async/Await
 async function guardarYNotificar(alerta: Alerta) {
   const resultado = await guardarAlerta(alerta);
   console.log("Resultado:", resultado);
