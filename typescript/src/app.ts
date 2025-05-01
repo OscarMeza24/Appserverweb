@@ -1,71 +1,103 @@
-let nombre_variable: string = "hola mundo";
-console.log(nombre_variable);
+// 1. Definición de Variables
+const alertaId: number = 101;
+const mensaje: string = "Riesgo de helada en la zona norte.";
+const nivel: "bajo" | "medio" | "alto" = "alto";
+const activa: boolean = true;
+const fechaCreacion: Date = new Date();
 
-const student: Istudent = {
+// 2. Definición de la Interface
+interface Alerta {
+  id: number;
+  mensaje: string;
+  nivel: "bajo" | "medio" | "alto";
+  activa: boolean;
+  fecha: Date;
+}
+
+// 3. Definición de Objetos
+const alerta1: Alerta = {
   id: 1,
-  name: "Oscar",
-  correo: "oscar@gmail.com",
-  direccion: "casa",
+  mensaje: "Lluvias intensas detectadas",
+  nivel: "alto",
+  activa: true,
+  fecha: new Date("2025-04-30T08:00:00"),
 };
 
-//interfaces
-interface Istudent {
-  id: number;
-  name: string;
-  correo: string;
-  direccion: string;
-  calificacion?: number;
+const alerta2: Alerta = {
+  id: 2,
+  mensaje: "Humedad baja registrada",
+  nivel: "medio",
+  activa: true,
+  fecha: new Date("2025-04-30T09:00:00"),
+};
+
+// 4. Arreglos y Arreglos de Objetos
+const listaAlertas: Alerta[] = [alerta1, alerta2];
+
+// 5. Funciones
+function crearAlerta(
+  id: number,
+  mensaje: string,
+  nivel: "bajo" | "medio" | "alto"
+): Alerta {
+  return {
+    id,
+    mensaje,
+    nivel,
+    activa: true,
+    fecha: new Date(),
+  };
 }
 
-//arreglo con tres estudiantes
-const estudiantes: Istudent[] = [
-  {
-    id: 11,
-    name: "oscar",
-    correo: "oscar@gmail.com",
-    direccion: "casa",
-  },
-
-  {
-    id: 22,
-    name: "mario",
-    correo: "mario@gmail.com",
-    direccion: "casa",
-    calificacion: 10,
-  },
-];
-
-//para agregar un estudiante mas
-estudiantes.push({
-  id: 33,
-  name: "pepe",
-  correo: "pepe@gmail.com",
-  direccion: "su casa",
-});
-
-//otra forma
-estudiantes.push(student);
-
-//como crear una funcion para agregar estudiantes al arreglo
-
-function Agregar(estudiante: Istudent): void {
-  estudiantes.push(estudiante);
+function mostrarAlerta(alerta: Alerta): void {
+  console.log(
+    `[${alerta.fecha.toISOString()}] (${alerta.nivel.toUpperCase()}) ${
+      alerta.mensaje
+    }`
+  );
 }
 
-const estudiante1: Istudent = { id: 44, name: "", correo: "", direccion: "" };
-Agregar(estudiante1);
+// 6. Spread y Rest
+// Clonamos la lista original y agregamos una nueva alerta con spread
+const nuevaAlerta = crearAlerta(3, "Temperatura elevada", "medio");
+const listaActualizada = [...listaAlertas, nuevaAlerta];
 
-function Agregar2(param: Istudent, callback: (estudiante: Istudent) => void) {
-  estudiantes.push(param);
-  callback(param);
-}
-
-const estudiante2: Istudent = { id: 44, name: "", correo: "", direccion: "" };
-Agregar2(estudiante2, (param: Istudent) => console.log);
-
-function Agregar3(param: Istudent): Promise<Istudent> {
-  return new Promise((resolve) => {
-    estudiantes.push(param);
-    resolve(param);
+// Usamos Rest para aceptar múltiples mensajes y mostrar cada uno
+function registrarMensajes(...mensajes: string[]): void {
+  mensajes.forEach((msg, index) => {
+    console.log(`Mensaje ${index + 1}: ${msg}`);
   });
 }
+
+// 7. Callback
+function procesarAlertas(
+  alertas: Alerta[],
+  callback: (a: Alerta) => void
+): void {
+  alertas.forEach(callback);
+}
+
+// 8. Promise (simulación de operación lenta)
+function guardarAlerta(alerta: Alerta): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`Alerta "${alerta.mensaje}" guardada exitosamente`);
+    }, 2000); // 2 segundos
+  });
+}
+
+// 9. ✅ Async/Await
+async function guardarYNotificar(alerta: Alerta) {
+  const resultado = await guardarAlerta(alerta);
+  console.log("Resultado:", resultado);
+}
+
+// 🧪 Probar todo
+console.log("➡ Lista actualizada de alertas:");
+procesarAlertas(listaActualizada, mostrarAlerta);
+
+console.log("\n➡ Registrando múltiples mensajes:");
+registrarMensajes("Granizo detectado", "Fuego cercano", "Sequía persistente");
+
+console.log("\n➡ Guardando alerta con Promise + async/await:");
+guardarYNotificar(nuevaAlerta);
