@@ -92,7 +92,7 @@ async function guardarYNotificar(alerta: Alerta) {
   console.log("Resultado:", resultado);
 }
 
-// 🧪 Probar todo
+//  Prueba de funcionalidad del codigo
 console.log("➡ Lista actualizada de alertas:");
 procesarAlertas(listaActualizada, mostrarAlerta);
 
