@@ -1,0 +1,23 @@
+{
+  "name": "sistema-monitoreo",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migrate:generate": "npm run typeorm migration:generate src/migrations/NombreMigracion",
+    "migrate:run": "npm run typeorm migration:run",
+    "seed": "ts-node src/seeds/run-seeds.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.1.14",
+    "typeorm": "^0.3.24"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.47",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
