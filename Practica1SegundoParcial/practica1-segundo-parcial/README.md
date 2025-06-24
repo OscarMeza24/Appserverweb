@@ -21,40 +21,49 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es un proyecto de práctica desarrollado con NestJS, un framework Node.js progresivo para construir aplicaciones del lado del servidor de manera eficiente y escalable.
 
-## Project setup
+## Características
 
+- Framework: NestJS
+- Lenguaje: TypeScript
+- Versión de NestJS: 11.0.1
+- Mensaje de bienvenida personalizado: "Hola mundo!"
+
+## Instalación
+
+1. Clona el repositorio
+2. Instala las dependencias:
 ```bash
-$ npm install
+npm install
 ```
 
-## Compile and run the project
+## Ejecución
 
 ```bash
-# development
-$ npm run start
+# Desarrollo (modo watch)
+npm run start:dev
 
-# watch mode
-$ npm run start:dev
+# Producción
+npm run start:prod
 
-# production mode
-$ npm run start:prod
+# Compilar
+npm run build
 ```
 
-## Run tests
+## Pruebas
 
 ```bash
-# unit tests
-$ npm run test
+# Pruebas unitarias
+npm run test
 
-# e2e tests
-$ npm run test:e2e
+# Pruebas e2e
+npm run test:e2e
 
-# test coverage
-$ npm run test:cov
+# Cobertura de pruebas
+npm run test:cov
 ```
 
 ## Deployment
