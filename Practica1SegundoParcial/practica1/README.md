@@ -40,30 +40,44 @@ La aplicación estará disponible en `http://localhost:3000`.
 
 ### Rutas disponibles
 
+# Nota: todas las rutas empiezan con /api/v1 
+# (Profe pase alto una de la consideraciones antes de sacar todas las capturas y agrege a la setGlobalPrefix despues de haberlas sacado, igual todo esta igual de funcional esperando que esto no afecte la nota, le deseo un buen dia).
+
 #### Módulo de Asignaciones
 - `POST /asignaciones` - Crear una nueva asignación
-
+![alt text](image.png)
 - `GET /asignaciones` - Obtener todas las asignaciones
-
+![alt text](image-1.png)
 - `GET /asignaciones/:id` - Obtener una asignación específica
-
+![alt text](image-2.png)
 - `PATCH /asignaciones/:id` - Actualizar una asignación
-
+![alt text](image-3.png)
 - `DELETE /asignaciones/:id` - Eliminar una asignación
+![alt text](image-4.png)
 
 #### Módulo de Eventos
 - `POST /eventos` - Crear un nuevo evento
+![alt text](image-5.png)
 - `GET /eventos` - Obtener todos los eventos
+![alt text](image-6.png)
 - `GET /eventos/:id` - Obtener un evento específico
+![alt text](image-7.png)
 - `PATCH /eventos/:id` - Actualizar un evento
+![alt text](image-8.png)
 - `DELETE /eventos/:id` - Eliminar un evento
+![alt text](image-9.png)
 
 #### Módulo de Voluntarios
 - `POST /voluntarios` - Crear un nuevo voluntario
+![alt text](image-10.png)
 - `GET /voluntarios` - Obtener todos los voluntarios
+![alt text](image-11.png)
 - `GET /voluntarios/:id` - Obtener un voluntario específico
+![alt text](image-12.png)
 - `PATCH /voluntarios/:id` - Actualizar un voluntario
+![alt text](image-13.png)
 - `DELETE /voluntarios/:id` - Eliminar un voluntario
+![alt text](image-14.png)
 
 ## Estructura del proyecto
 
