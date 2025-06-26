@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateVoluntarioDto } from './dto/create-voluntario.dto';
 import { UpdateVoluntarioDto } from './dto/update-voluntario.dto';
 import { Voluntario } from './entities/voluntario.entity';
@@ -23,15 +23,23 @@ export class VoluntariosService {
     return this.voluntarioRepository.find();
   }
 
-  findOne(id: number) {
-    return this.voluntarioRepository.findOneBy({id});
+  async findOne(id: number): Promise<Voluntario> {
+    const voluntario = await this.voluntarioRepository.findOneBy({ id });
+    if (!voluntario) {
+      throw new NotFoundException(`Voluntario con ID ${id} no encontrado`);
+    }
+    return voluntario;
   }
 
-  update(id: number, updateVoluntarioDto: UpdateVoluntarioDto) {
-    return this.voluntarioRepository.update(id, updateVoluntarioDto).then(() => this.findOne(id));
+  async update(id: number, updateVoluntarioDto: UpdateVoluntarioDto): Promise<Voluntario> {
+    await this.findOne(id);   
+    await this.voluntarioRepository.update(id, updateVoluntarioDto);
+    return this.findOne(id);
   }
 
-  remove(id: number) {
-    return this.voluntarioRepository.delete(id).then(() => ({message: 'Voluntario eliminado correctamente'}));
+  async remove(id: number): Promise<{ message: string }> {
+    const voluntario = await this.findOne(id); 
+    await this.voluntarioRepository.delete(id);
+    return { message: 'Voluntario eliminado correctamente' };
   }
 }
