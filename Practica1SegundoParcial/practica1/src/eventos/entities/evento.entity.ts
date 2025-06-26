@@ -15,5 +15,5 @@ export class Evento {
     lugar_evento: string;
 
     @Column({type: 'varchar'})
-    estado: string;
+    estado: 'Activo' | 'Inactivo';
 }

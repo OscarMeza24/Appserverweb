@@ -1,47 +1,103 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Sistema de Gestión de Voluntarios
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este proyecto es una aplicación backend desarrollada con NestJS para gestionar asignaciones de voluntarios. Permite crear, gestionar y asignar voluntarios a diferentes tareas.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Características principales
 
-## Description
+- Gestión de asignaciones de voluntarios
+- CRUD completo para asignaciones
+- Validación de datos
+- API RESTful con TypeScript
+- Documentación automática con Swagger
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Requisitos previos
 
-## Project setup
+- Node.js (versión 16 o superior)
+- npm (gestor de paquetes de Node.js)
+- TypeScript
 
+## Instalación
+
+1. Clona el repositorio:
 ```bash
-$ npm install
+git clone https://github.com/OscarMeza24/Appserverweb.git
+cd Practica1SegundoParcial/practica1
 ```
 
-## Compile and run the project
-
+2. Instala las dependencias:
 ```bash
-# development
-$ npm run start
+npm install
+```
 
-# watch mode
-$ npm run start:dev
+3. Ejecuta el proyecto en modo desarrollo:
+```bash
+npm run start:dev
+```
 
-# production mode
-$ npm run start:prod
+## Uso
+
+La aplicación estará disponible en `http://localhost:3000`.
+
+### Rutas disponibles
+
+#### Módulo de Asignaciones
+- `POST /asignaciones` - Crear una nueva asignación
+
+- `GET /asignaciones` - Obtener todas las asignaciones
+
+- `GET /asignaciones/:id` - Obtener una asignación específica
+
+- `PATCH /asignaciones/:id` - Actualizar una asignación
+
+- `DELETE /asignaciones/:id` - Eliminar una asignación
+
+#### Módulo de Eventos
+- `POST /eventos` - Crear un nuevo evento
+- `GET /eventos` - Obtener todos los eventos
+- `GET /eventos/:id` - Obtener un evento específico
+- `PATCH /eventos/:id` - Actualizar un evento
+- `DELETE /eventos/:id` - Eliminar un evento
+
+#### Módulo de Voluntarios
+- `POST /voluntarios` - Crear un nuevo voluntario
+- `GET /voluntarios` - Obtener todos los voluntarios
+- `GET /voluntarios/:id` - Obtener un voluntario específico
+- `PATCH /voluntarios/:id` - Actualizar un voluntario
+- `DELETE /voluntarios/:id` - Eliminar un voluntario
+
+## Estructura del proyecto
+
+- `/src/asignaciones`: Módulo principal con entidades, servicios y controladores
+- `/src/asignaciones/entities`: Definición de las entidades
+- `/src/asignaciones/dto`: Transferencia de objetos de datos
+- `/src/asignaciones/services`: Lógica de negocio
+- `/src/asignaciones/controllers`: Controladores HTTP
+
+## Tecnologías utilizadas
+
+- NestJS
+- TypeScript
+- Express
+- Swagger/OpenAPI
+- Node.js
+
+## Pruebas
+
+Para ejecutar las pruebas:
+```bash
+npm run test
+```
+
+## Modos de ejecución
+
+- Desarrollo (con hot-reload):
+```bash
+npm run start:dev
+```
+
+- Producción:
+```bash
+npm run start:prod
 ```
 
 ## Run tests
