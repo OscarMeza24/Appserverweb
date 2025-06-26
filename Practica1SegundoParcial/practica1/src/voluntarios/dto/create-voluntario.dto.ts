@@ -14,7 +14,7 @@ export class CreateVoluntarioDto {
     @IsEmail()
     correo: string;
 
-    @IsNumber()s
+    @IsNumber()
     telefono: number;
    
     @IsString()
