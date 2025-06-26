@@ -1,26 +1,42 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAsignacioneDto } from './dto/create-asignacione.dto';
 import { UpdateAsignacioneDto } from './dto/update-asignacione.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Asignacione } from './entities/asignacione.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AsignacionesService {
+  constructor(
+    @InjectRepository(Asignacione)
+    private asignacioneRepository: Repository<Asignacione>,
+  ) {}
   create(createAsignacioneDto: CreateAsignacioneDto) {
-    return 'This action adds a new asignacione';
+    const asignacione = this.asignacioneRepository.create(createAsignacioneDto);
+    return this.asignacioneRepository.save(asignacione);
   }
 
   findAll() {
-    return `This action returns all asignaciones`;
+    return this.asignacioneRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} asignacione`;
+  async findOne(id: number): Promise<Asignacione> {
+    const asignacione = await this.asignacioneRepository.findOneBy({ id });
+    if (!asignacione) {
+      throw new NotFoundException(`Asignacione con ID ${id} no encontrado`);
+    }
+    return asignacione;
   }
 
-  update(id: number, updateAsignacioneDto: UpdateAsignacioneDto) {
-    return `This action updates a #${id} asignacione`;
+  async update(id: number, updateAsignacioneDto: UpdateAsignacioneDto): Promise<Asignacione> {
+    const asignacione = await this.findOne(id);   
+    await this.asignacioneRepository.update(id, updateAsignacioneDto);
+    return this.findOne(id);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} asignacione`;
+  async remove(id: number): Promise<{ message: string }> {
+    const asignacione = await this.findOne(id); 
+    await this.asignacioneRepository.delete(id);
+    return { message: 'Asignacione eliminado correctamente' };
   }
 }
