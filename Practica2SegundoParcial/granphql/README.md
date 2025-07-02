@@ -21,9 +21,40 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es un proyecto de gestión de voluntarios construido con NestJS y GraphQL. Permite gestionar información de voluntarios utilizando una API GraphQL.
+
+## Estructura del Proyecto
+
+El proyecto está organizado de la siguiente manera:
+
+```
+src/
+├── voluntarios/           # Módulo principal
+│   ├── entities/         # Entidades del modelo de datos
+│   │   └── voluntario.entity.ts
+│   ├── dto/             # Transfer Objects
+│   │   └── create-voluntario.input.ts
+│   └── voluntarios.service.ts
+├── main.ts              # Punto de entrada de la aplicación
+└── ...
+```
+
+## Modelo de Datos
+
+### Voluntario
+
+El modelo Voluntario representa a un voluntario en el sistema y tiene los siguientes campos:
+
+- `id`: Identificador único (autogenerado)
+- `nombre`: Nombre del voluntario
+- `apellido`: Apellido del voluntario
+- `correo`: Correo electrónico
+- `telefono`: Número de teléfono
+- `direccion`: Dirección del voluntario
+
+El modelo está implementado como una entidad TypeORM y un tipo GraphQL, permitiendo su uso tanto en la base de datos como en la API GraphQL.
 
 ## Project setup
 

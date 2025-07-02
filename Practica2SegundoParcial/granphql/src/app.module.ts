@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { VoluntariosModule } from './voluntarios/voluntarios.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
@@ -8,6 +6,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
+import { AsignacionesModule } from './asignaciones/asignaciones.module';
+import { EventosModule } from './eventos/eventos.module';
 
 
 @Module({
@@ -29,8 +29,10 @@ import { join } from 'path';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
-    VoluntariosModule],
-  controllers: [AppController],
-  providers: [AppService],
+    VoluntariosModule,
+    AsignacionesModule,
+    EventosModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
