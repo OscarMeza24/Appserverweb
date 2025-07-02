@@ -31,17 +31,38 @@ El proyecto está organizado de la siguiente manera:
 
 ```
 src/
-├── voluntarios/           # Módulo principal
-│   ├── entities/         # Entidades del modelo de datos
-│   │   └── voluntario.entity.ts
-│   ├── dto/             # Transfer Objects
-│   │   └── create-voluntario.input.ts
-│   └── voluntarios.service.ts
-├── main.ts              # Punto de entrada de la aplicación
+├── asignaciones/        # Módulo de asignaciones
+│   ├── entities/       # Entidades del modelo de datos
+│   │   └── asignacione.entity.ts
+│   ├── dto/           # Transfer Objects
+│   │   └── create-asignacione.input.ts
+│   ├── asignaciones.service.ts
+│   ├── asignaciones.resolver.ts
+│   └── asignaciones.module.ts
+├── main.ts             # Punto de entrada de la aplicación
 └── ...
 ```
 
 ## Modelo de Datos
+
+### Asignación
+
+El modelo Asignación representa una asignación en el sistema y tiene los siguientes campos:
+
+- `id`: Identificador único (autogenerado)
+- `nombre_asignacion`: Nombre de la asignación
+- `rol`: Rol asignado
+- `fecha_asignacion`: Fecha de la asignación
+- `estado`: Estado de la asignación
+
+### Evento
+
+El modelo Evento representa un evento en el sistema y tiene los siguientes campos:
+
+- `id`: Identificador único (autogenerado)
+- `nombre_evento`: Nombre del evento
+- `fecha_evento`: Fecha del evento
+- `descripcion`: Descripción del evento
 
 ### Voluntario
 
@@ -51,10 +72,11 @@ El modelo Voluntario representa a un voluntario en el sistema y tiene los siguie
 - `nombre`: Nombre del voluntario
 - `apellido`: Apellido del voluntario
 - `correo`: Correo electrónico
-- `telefono`: Número de teléfono
-- `direccion`: Dirección del voluntario
+- `rol`: Rol del voluntario
+- `fecha_asignacion`: Fecha de la asignación
+- `estado`: Estado de la asignación
 
-El modelo está implementado como una entidad TypeORM y un tipo GraphQL, permitiendo su uso tanto en la base de datos como en la API GraphQL.
+Cada modelo está implementado como una entidad TypeORM y un tipo GraphQL, permitiendo su uso tanto en la base de datos como en la API GraphQL.
 
 ## Project setup
 
