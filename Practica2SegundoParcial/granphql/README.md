@@ -78,6 +78,25 @@ El modelo Voluntario representa a un voluntario en el sistema y tiene los siguie
 
 Cada modelo está implementado como una entidad TypeORM y un tipo GraphQL, permitiendo su uso tanto en la base de datos como en la API GraphQL.
 
+## Endpoints
+Consulta principal
+
+![alt text](image.png)
+
+Crear voluntario
+
+![alt text](image-1.png)
+
+Actualizar voluntario
+
+![alt text](image-2.png)
+
+Eliminar voluntario
+
+![alt text](image-3.png)
+
+Y funciona de la misma manera todos los endpoints de los demas modulos, de la misma forma que se muestra en la imagen
+
 ## Project setup
 
 ```bash
