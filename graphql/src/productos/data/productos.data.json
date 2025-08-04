@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "Categoria": "Electrónicos",
+      "Color": "Negro",
+      "Texto": "Smartphone de última generación",
+      "Imagen": "https://example.com/images/phone.jpg",
+      "Precio": 899.99,
+      "Stock": 50
+    },
+    {
+      "id": 2,
+      "Categoria": "Ropa",
+      "Color": "Azul",
+      "Texto": "Camiseta de algodón",
+      "Imagen": "https://example.com/images/tshirt.jpg",
+      "Precio": 24.99,
+      "Stock": 120
+    },
+    {
+      "id": 3,
+      "Categoria": "Hogar",
+      "Color": "Blanco",
+      "Texto": "Juego de sábanas de algodón egipcio",
+      "Imagen": "https://example.com/images/sheets.jpg",
+      "Precio": 89.99,
+      "Stock": 30
+    }
+  ]

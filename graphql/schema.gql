@@ -1,0 +1,234 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Usuario {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  nombre: String!
+  apellido: String!
+  correo: String!
+  contrasena: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Producto {
+  """Id del producto"""
+  id: Int!
+
+  """Categoria del producto"""
+  Categoria: String!
+
+  """Color del producto"""
+  Color: String!
+
+  """Texto del producto"""
+  Texto: String!
+
+  """Imagen del producto"""
+  Imagen: String!
+
+  """Precio del producto"""
+  Precio: Int!
+
+  """Stock del producto"""
+  Stock: Int!
+}
+
+type Envio {
+  """Id del envio"""
+  id: Int!
+
+  """Direccion del envio"""
+  Direccion: String!
+
+  """Codigo postal del envio"""
+  CodigoPostal: String!
+
+  """Ciudad del envio"""
+  Cuidad: String!
+
+  """Pais del envio"""
+  Pais: String!
+}
+
+type MetodosPago {
+  """Nombre del metodo de pago"""
+  nombre: String!
+
+  """Descripcion del metodo de pago"""
+  descripcion: String!
+
+  """Imagen del metodo de pago"""
+  imagen: String!
+
+  """Url del metodo de pago"""
+  url: String!
+}
+
+type Query {
+  metodosPagos: [MetodosPago!]!
+  metodosPago(id: Int!): MetodosPago!
+  envios: [Envio!]!
+  envio(id: Int!): Envio!
+  productos: [Producto!]!
+  producto(id: Int!): Producto!
+  usuarios: [Usuario!]!
+  usuario(id: Int!): Usuario!
+}
+
+type Mutation {
+  createMetodosPago(createMetodosPagoInput: CreateMetodosPagoInput!): MetodosPago!
+  updateMetodosPago(updateMetodosPagoInput: UpdateMetodosPagoInput!): MetodosPago!
+  removeMetodosPago(id: Int!): MetodosPago!
+  createEnvio(createEnvioInput: CreateEnvioInput!): Envio!
+  updateEnvio(id: Int!, updateEnvioInput: UpdateEnvioInput!): Envio!
+  removeEnvio(id: Int!): Envio!
+  createProducto(createProductoInput: CreateProductoInput!): Producto!
+  updateProducto(updateProductoInput: UpdateProductoInput!): Producto!
+  removeProducto(id: Int!): Producto!
+  createUsuario(createUsuarioInput: CreateUsuarioInput!): Usuario!
+  updateUsuario(id: Int!, updateUsuarioInput: UpdateUsuarioInput!): Usuario!
+  removeUsuario(id: Int!): Usuario!
+}
+
+input CreateMetodosPagoInput {
+  """Nombre del metodo de pago"""
+  nombre: String!
+
+  """Descripcion del metodo de pago"""
+  descripcion: String!
+
+  """Imagen del metodo de pago"""
+  imagen: String!
+
+  """Url del metodo de pago"""
+  url: String!
+}
+
+input UpdateMetodosPagoInput {
+  """Nombre del metodo de pago"""
+  nombre: String
+
+  """Descripcion del metodo de pago"""
+  descripcion: String
+
+  """Imagen del metodo de pago"""
+  imagen: String
+
+  """Url del metodo de pago"""
+  url: String
+  id: Int!
+}
+
+input CreateEnvioInput {
+  """Id del metodo de pago"""
+  id: Int!
+
+  """Direccion del envio"""
+  Direccion: String!
+
+  """Ciudad del envio"""
+  CodigoPostal: String!
+
+  """Departamento del envio"""
+  Cuidad: String!
+
+  """Pais del envio"""
+  Pais: String!
+}
+
+input UpdateEnvioInput {
+  id: Int!
+
+  """Direccion del envio"""
+  Direccion: String
+
+  """Ciudad del envio"""
+  CodigoPostal: String
+
+  """Departamento del envio"""
+  Cuidad: String
+
+  """Pais del envio"""
+  Pais: String
+}
+
+input CreateProductoInput {
+  """Id del producto"""
+  id: String!
+
+  """Categoria del producto"""
+  Categoria: String!
+
+  """Color del producto"""
+  Color: String!
+
+  """Texto del producto"""
+  Texto: String!
+
+  """Imagen del producto"""
+  Imagen: String!
+
+  """Precio del producto"""
+  Precio: Int!
+
+  """Stock del producto"""
+  Stock: Int!
+}
+
+input UpdateProductoInput {
+  id: Int!
+
+  """Categoria del producto"""
+  Categoria: String
+
+  """Color del producto"""
+  Color: String
+
+  """Texto del producto"""
+  Texto: String
+
+  """Imagen del producto"""
+  Imagen: String
+
+  """Precio del producto"""
+  Precio: Int
+
+  """Stock del producto"""
+  Stock: Int
+}
+
+input CreateUsuarioInput {
+  """Nombre del usuario"""
+  nombre: String!
+
+  """Apellido del usuario"""
+  apellido: String!
+
+  """Correo del usuario"""
+  correo: String!
+
+  """Contrasena del usuario"""
+  contrasena: String!
+}
+
+input UpdateUsuarioInput {
+  """Nombre del usuario"""
+  nombre: String
+
+  """Apellido del usuario"""
+  apellido: String
+
+  """Correo del usuario"""
+  correo: String
+
+  """Contrasena del usuario"""
+  contrasena: String
+  id: Int!
+}

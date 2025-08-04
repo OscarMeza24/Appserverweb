@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "Direccion": "Av. Principal #123",
+    "CodigoPostal": "01001",
+    "Cuidad": "Ciudad de México",
+    "Pais": "México"
+  },
+  {
+    "id": 2,
+    "Direccion": "Calle Secundaria #456",
+    "CodigoPostal": "08001",
+    "Cuidad": "Barcelona",
+    "Pais": "España"
+  },
+  {
+    "id": 3,
+    "Direccion": "Main Street #789",
+    "CodigoPostal": "10001",
+    "Cuidad": "New York",
+    "Pais": "Estados Unidos"
+  },
+  {
+    "id": 4,
+    "Direccion": "Rua Principal #101",
+    "CodigoPostal": "20000",
+    "Cuidad": "Río de Janeiro",
+    "Pais": "Brasil"
+  },
+  {
+    "id": 5,
+    "Direccion": "Carrera 10 #20-30",
+    "CodigoPostal": "11001",
+    "Cuidad": "Bogotá",
+    "Pais": "Colombia"
+  }
+]

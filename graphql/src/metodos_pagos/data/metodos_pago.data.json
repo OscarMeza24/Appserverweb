@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "nombre": "Tarjeta de Crédito",
+      "descripcion": "Pago seguro con tarjeta de crédito",
+      "imagen": "https://example.com/images/credit-card.png",
+      "url": "/pago/tarjeta"
+    },
+    {
+      "id": 2,
+      "nombre": "PayPal",
+      "descripcion": "Pago rápido con PayPal",
+      "imagen": "https://example.com/images/paypal.png",
+      "url": "/pago/paypal"
+    },
+    {
+      "id": 3,
+      "nombre": "Transferencia Bancaria",
+      "descripcion": "Pago por transferencia bancaria",
+      "imagen": "https://example.com/images/bank-transfer.png",
+      "url": "/pago/transferencia"
+    }
+]
